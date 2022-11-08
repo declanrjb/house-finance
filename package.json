@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "homepage": "https://declanrjb.github.io/senate-finance/",
+
   "main": "src/index.ts",
   "dependencies": {
     "graphology": "0.25.1",
