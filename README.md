@@ -1,4 +1,4 @@
-# senate-finance
+# house-finance
 
 This chart represents campaign donations of $1000 or more to representatives in the US Senate.
 
@@ -10,19 +10,28 @@ Click any node to focus its local network, and click again to dismiss. Double cl
 
 This web application was developed by Declan Bradley using react and sigmajs, and incorporates sample code from both libraries. Thank you to the developers of us-senate and other GitHub repositories at Civil Service USA for providing data that makes this analysis possible.
 
-The final project is available at https://declanrjb.github.io/senate-finance/.
+The final project is available at https://declanrjb.github.io/house-finance/.
 
 ## Methodology
 
-The source data for this chart was crawled from opensecrets.org using R. The script focused on senators as initial data points and charted the donors listed in the "Top Contributors" table of each representative's Open Secrets page, returning only donations over $1000 and only the top 100 donors by amount for each senator. Each senator's Open Secrets id, used in the url query, was taken from an open GitHub repository of senate data available at https://github.com/CivilServiceUSA/us-senate/blob/master/us-senate/data/us-senate.csv. My thanks to the creators of that project for making this work possible.
+The source data for this chart was crawled from opensecrets.org using R. The script focused on representatives as initial data points and charted the donors listed in the "Top Contributors" table of each representative's Open Secrets page, returning only donations over $1000 and only the top 100 donors by amount for each representative. Finally, only donors that donated to a minimum of 2 or more representatives were kept in the final data set. Each representative's Open Secrets id, used in the url query, was taken from an open GitHub repository of senate data available at https://github.com/CivilServiceUSA/us-house/blob/master/us-house/data/us-house.csv. My thanks to the creators of that project for making this work possible.
 
-After cleaning for duplicates and near duplicates (ie, variant spellings and capitalizations), this yielded a total of 3750 nodes and 7049 edges. Five senators have not made recent reports public, and/or did not have Open Secrets ids listed in the above database, and are therefore not included. The remaining nodes and edges were imported into Gephi and arranged using the Fruchterman Reingold method with the following settings:
+After cleaning for duplicates and near duplicates (ie, variant spellings and capitalizations), this yielded a total of 3011 nodes and 30012 edges. Five senators have not made recent reports public, and/or did not have Open Secrets ids listed in the above database, and are therefore not included. The remaining nodes and edges were imported into Gephi and arranged using the Force Atlas 2 method with the following settings:
 
-| Property  | Value   |
-|-----------|---------|
-| Area      | 37500.0 |
-| Gravity   | 2.0     |
-| Speed     | 5.0     |
+| Property              | Value |
+|-----------------------|-------|
+| Threads Number        | 20.0  |
+| Tolerance (speed)     | 1.0   |
+| Approximate Repulsion | True  |
+| Approximation         | 1.2   |
+| Scaling               | 30.0  |
+| Stronger Gravity      | False |
+| Gravity               | 1.0   |
+| Dissuade Hubs         | False |
+| LingLong Mode         | False |
+| Prevent Overlap       | False |
+| Edge Weight Influece  | 1.0   |
+| Normalize Edge Weights| False |
 
 At the time of layout, Gephi factored existing connections and node size into final positions, but had no access to party association or other political information. Any appearance of a party arrangement in the final graph is purely a result of the efficiency calculations built into the Fruchterman Reingold process. The following variables were used at the time of layout:
 
@@ -38,6 +47,6 @@ The following aesthetic attributes were added after the layout process:
 | Color        | By party alignment: blue for Democrat, red for Republican, yellow for Independent |
 | Edge Weight  | Log base 2 of the amount the edge represents, in $                                |
 | Edge Opacity | As a proportion of edge weight, with the same calculation as above                |
-| Rotation     | By a random seed, the layout algorithm placed Republicans on the left of the graph and Democrats on the right. The graph was rotated 180 degrees to make this less confusing. |
+| Rotation     | By a random seed, the layout algorithm placed Republicans on the left of the graph and Democrats on the right. The graph was rotated 160 degrees to make this less confusing. |
 
 The finished chart was loaded into the project as a gexf file and rendered using sigmajs.
