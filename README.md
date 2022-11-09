@@ -1,16 +1,16 @@
-# senate-finance
+# house-finance
 
-This chart represents campaign donations of $1000 or more to representatives in the US Senate.
+This chart represents campaign donations of $1000 or more to representatives in the US House.
 
 The source data was crawled from opensecrets.org, an independent nonprofit whose mission is to "track the flow of money in American politics and provide the data and analysis to strengthen democracy."
 
-Senators are responsible for reporting this data, and those who chose not to are not represented here. In addition, the most recent publicly available report was used in each case, so some data may be out of date.
+Representatives are responsible for reporting this data, and those who chose not to are not represented here. In addition, the most recent publicly available report was used in each case, so some data may be out of date.
 
 Click any node to focus its local network, and click again to dismiss. Double click on any node to open its opensecrets.org page.
 
-This web application was developed by Declan Bradley using react and sigmajs, and incorporates sample code from both libraries. Thank you to the developers of us-senate and other GitHub repositories at Civil Service USA for providing data that makes this analysis possible.
+This web application was developed by Declan Bradley using react and sigmajs, and incorporates sample code from both libraries. Thank you to the developers of us-house and other GitHub repositories at Civil Service USA for providing data that makes this analysis possible.
 
-The final project is available at https://declanrjb.github.io/senate-finance/.
+The final project is available at https://declanrjb.github.io/house-finance/.
 
 ## Methodology
 
